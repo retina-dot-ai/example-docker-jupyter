@@ -7,12 +7,8 @@ MAINTAINER "Brad Ito" brad@retina.ai
 USER root
 
 RUN apt-get update \
-  && apt-get upgrade -y
-
-# cleanup
-RUN apt-get autoremove -y \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  && apt-get upgrade -y \
+  && apt-get autoremove -y && apt-get clean
 
 ####### jovyan user #####
 # Switch back to jovyan to avoid accidental container runs as root

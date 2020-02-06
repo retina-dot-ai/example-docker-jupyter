@@ -18,7 +18,8 @@ RUN conda update -n base conda
 
 # Install Python external libraries specific to our environment
 # Use pip instead of conda because it is less likely to fail/freeze
-COPY requirements.txt /home/jovyan/requirements.txt
-RUN pip install -r /home/jovyan/requirements.txt
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install -r /tmp/requirements.txt
 
-
+# cleanup
+RUN rmdir /home/jovyan/work
